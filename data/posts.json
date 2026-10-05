@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "date": "2023-05-15",
+    "caption": "College farewell memories ❤️",
+    "hashtags": ["college", "farewell", "friends"],
+    "media_type": "photo"
+  },
+  {
+    "id": 2,
+    "date": "2023-05-10",
+    "caption": "Our last day at college 🎓",
+    "hashtags": ["college", "friends"],
+    "media_type": "video"
+  },
+  {
+    "id": 3,
+    "date": "2023-04-20",
+    "caption": "Beautiful evening at the beach 🌊",
+    "hashtags": ["beach", "travel", "sunset"],
+    "media_type": "photo"
+  },
+  {
+    "id": 4,
+    "date": "2023-03-15",
+    "caption": "Birthday celebration with my best friends 🎂",
+    "hashtags": ["birthday", "friends", "celebration"],
+    "media_type": "photo"
+  },
+  {
+    "id": 5,
+    "date": "2023-02-12",
+    "caption": "Weekend cricket match 🏏",
+    "hashtags": ["cricket", "sports", "friends"],
+    "media_type": "video"
+  },
+  {
+    "id": 6,
+    "date": "2022-12-25",
+    "caption": "Christmas celebration with family 🎄",
+    "hashtags": ["christmas", "family"],
+    "media_type": "photo"
+  },
+  {
+    "id": 7,
+    "date": "2022-11-10",
+    "caption": "A beautiful trip to Coorg 🌄",
+    "hashtags": ["travel", "coorg", "nature"],
+    "media_type": "photo"
+  },
+  {
+    "id": 8,
+    "date": "2022-10-05",
+    "caption": "Diwali celebration 🪔",
+    "hashtags": ["diwali", "festival", "family"],
+    "media_type": "photo"
+  },
+  {
+    "id": 9,
+    "date": "2022-08-20",
+    "caption": "Playing volleyball with friends 🏐",
+    "hashtags": ["volleyball", "sports", "friends"],
+    "media_type": "video"
+  },
+  {
+    "id": 10,
+    "date": "2022-07-15",
+    "caption": "Rainy day memories ☔",
+    "hashtags": ["rain", "nature", "memories"],
+    "media_type": "photo"
+  },
+  {
+    "id": 11,
+    "date": "2021-12-31",
+    "caption": "Goodbye 2021, welcome 2022 🎉",
+    "hashtags": ["newyear", "celebration"],
+    "media_type": "video"
+  },
+  {
+    "id": 12,
+    "date": "2021-11-20",
+    "caption": "College friends reunion ❤️",
+    "hashtags": ["college", "friends", "reunion"],
+    "media_type": "photo"
+  },
+  {
+    "id": 13,
+    "date": "2021-09-15",
+    "caption": "Exploring nature and mountains 🌲",
+    "hashtags": ["nature", "mountains", "travel"],
+    "media_type": "photo"
+  },
+  {
+    "id": 14,
+    "date": "2021-08-10",
+    "caption": "First cricket tournament 🏆",
+    "hashtags": ["cricket", "tournament", "sports"],
+    "media_type": "video"
+  },
+  {
+    "id": 15,
+    "date": "2021-06-20",
+    "caption": "Family vacation memories ❤️",
+    "hashtags": ["family", "vacation", "travel"],
+    "media_type": "photo"
+  },
+  {
+    "id": 16,
+    "date": "2020-12-25",
+    "caption": "Christmas at home 🎄",
+    "hashtags": ["christmas", "family"],
+    "media_type": "photo"
+  },
+  {
+    "id": 17,
+    "date": "2020-10-31",
+    "caption": "A fun day with school friends",
+    "hashtags": ["school", "friends", "memories"],
+    "media_type": "photo"
+  },
+  {
+    "id": 18,
+    "date": "2020-08-15",
+    "caption": "Independence Day celebration 🇮🇳",
+    "hashtags": ["independenceday", "india", "celebration"],
+    "media_type": "video"
+  },
+  {
+    "id": 19,
+    "date": "2020-05-10",
+    "caption": "Throwback to our school days",
+    "hashtags": ["school", "throwback", "friends"],
+    "media_type": "photo"
+  },
+  {
+    "id": 20,
+    "date": "2019-12-31",
+    "caption": "New year memories with friends 🎉",
+    "hashtags": ["newyear", "friends", "memories"],
+    "media_type": "photo"
+  }
+]

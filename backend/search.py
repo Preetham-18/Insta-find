@@ -9,8 +9,9 @@ for post in posts:
 
     caption = post["caption"].lower()
     hashtags = " ".join(post["hashtags"]).lower()
+    date = post["date"]
 
-    if search in caption or search in hashtags:
+    if search in caption or search in hashtags or search in date:
         print("\n--------------------")
         print("Post ID:", post["id"])
         print("Date:", post["date"])

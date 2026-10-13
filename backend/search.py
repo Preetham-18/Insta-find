@@ -49,28 +49,50 @@ else:
                     found_posts.append(post)
 
             if found_posts:
-                sort_order = input(
-                    "Sort by likes (high/low): "
-                ).strip().lower()
+                print("\nSort by:")
+                print("1. Likes (high to low)")
+                print("2. Likes (low to high)")
+                print("3. Date (newest first)")
+                print("4. Date (oldest first)")
 
-                if sort_order not in ["high", "low"]:
-                    print("Invalid choice. Choose high or low.")
+                sort_choice = input("Enter your choice (1-4): ").strip()
 
-                else:
+                if sort_choice == "1":
                     found_posts.sort(
                         key=lambda post: post["likes"],
-                        reverse=(sort_order == "high")
+                        reverse=True
                     )
 
-                    for post in found_posts:
-                        print("\n--------------------")
-                        print("Post ID:", post["id"])
-                        print("Date:", post["date"])
-                        print("Caption:", post["caption"])
-                        print("Hashtags:", post["hashtags"])
-                        print("Type:", post["media_type"])
-                        print("Likes:", post["likes"])
+                elif sort_choice == "2":
+                    found_posts.sort(
+                        key=lambda post: post["likes"]
+                    )
 
+                elif sort_choice == "3":
+                    found_posts.sort(
+                        key=lambda post: post["date"],
+                        reverse=True
+                    )
+
+                elif sort_choice == "4":
+                    found_posts.sort(
+                        key=lambda post: post["date"]
+                    )
+
+                else:
+                    print("Invalid choice. Choose 1, 2, 3, or 4.")
+                    found_posts = []
+
+                for post in found_posts:
+                    print("\n--------------------")
+                    print("Post ID:", post["id"])
+                    print("Date:", post["date"])
+                    print("Caption:", post["caption"])
+                    print("Hashtags:", post["hashtags"])
+                    print("Type:", post["media_type"])
+                    print("Likes:", post["likes"])
+
+                if found_posts:
                     print("\nTotal posts found:", len(found_posts))
 
             else:

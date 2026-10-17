@@ -62,38 +62,48 @@ else:
                         key=lambda post: post["likes"],
                         reverse=True
                     )
-
                 elif sort_choice == "2":
                     found_posts.sort(
                         key=lambda post: post["likes"]
                     )
-
                 elif sort_choice == "3":
                     found_posts.sort(
                         key=lambda post: post["date"],
                         reverse=True
                     )
-
                 elif sort_choice == "4":
                     found_posts.sort(
                         key=lambda post: post["date"]
                     )
-
                 else:
                     print("Invalid choice. Choose 1, 2, 3, or 4.")
                     found_posts = []
 
-                for post in found_posts:
-                    print("\n--------------------")
-                    print("Post ID:", post["id"])
-                    print("Date:", post["date"])
-                    print("Caption:", post["caption"])
-                    print("Hashtags:", post["hashtags"])
-                    print("Type:", post["media_type"])
-                    print("Likes:", post["likes"])
-
                 if found_posts:
-                    print("\nTotal posts found:", len(found_posts))
+                    photo_count = sum(
+                        1 for post in found_posts
+                        if post["media_type"].lower() == "photo"
+                    )
+
+                    video_count = sum(
+                        1 for post in found_posts
+                        if post["media_type"].lower() == "video"
+                    )
+
+                    print("\n========== SEARCH SUMMARY ==========")
+                    print("Total posts found:", len(found_posts))
+                    print("Photos found:", photo_count)
+                    print("Videos found:", video_count)
+                    print("====================================")
+
+                    for post in found_posts:
+                        print("\n--------------------")
+                        print("Post ID:", post["id"])
+                        print("Date:", post["date"])
+                        print("Caption:", post["caption"])
+                        print("Hashtags:", post["hashtags"])
+                        print("Type:", post["media_type"])
+                        print("Likes:", post["likes"])
 
             else:
                 print("No matching posts found.")

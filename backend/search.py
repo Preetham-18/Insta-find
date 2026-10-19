@@ -1,10 +1,45 @@
 
 import json
+import os
+
+HISTORY_FILE = "data/search_history.json"
 
 with open("data/posts.json", "r", encoding="utf-8") as file:
     posts = json.load(file)
 
-search_history = []
+
+def load_history():
+    """Load saved searches from the JSON file."""
+    if not os.path.exists(HISTORY_FILE):
+        return []
+
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as file:
+            history = json.load(file)
+
+        if isinstance(history, list) and all(
+            isinstance(item, str) for item in history
+        ):
+            return history
+
+        print("Search history file has an invalid format.")
+        return []
+
+    except (json.JSONDecodeError, OSError):
+        print("Could not read search history. Starting with empty history.")
+        return []
+
+
+def save_history(history):
+    """Save searches to the JSON file."""
+    try:
+        with open(HISTORY_FILE, "w", encoding="utf-8") as file:
+            json.dump(history, file, indent=4, ensure_ascii=False)
+    except OSError:
+        print("Could not save search history.")
+
+
+search_history = load_history()
 
 
 def search_posts():
@@ -17,6 +52,7 @@ def search_posts():
         return
 
     search_history.append(search)
+    save_history(search_history)
 
     media_filter = input(
         "Show all, photo, or video: "

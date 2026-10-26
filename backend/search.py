@@ -1,6 +1,7 @@
 
 import json
 import os
+from datetime import datetime
 
 HISTORY_FILE = "data/search_history.json"
 
@@ -193,13 +194,99 @@ def clear_history():
 
 
 
+def remove_history_item():
+    if not search_history:
+        print("Search history is empty.")
+        return
+
+    view_history()
+
+    choice = input(
+        "Enter the number to remove (0 to cancel): "
+    ).strip()
+
+    if not choice.isdigit():
+        print("Please enter a valid number.")
+        return
+
+    index = int(choice)
+
+    if index == 0:
+        print("Removal cancelled.")
+        return
+
+    if index < 1 or index > len(search_history):
+        print("Invalid history number.")
+        return
+
+    removed_search = search_history.pop(index - 1)
+    save_history(search_history)
+
+    print(f"Removed '{removed_search}' from search history.")
+
+
+
+def search_by_date_range():
+    start_input = input("Enter start date (YYYY-MM-DD): ").strip()
+    end_input = input("Enter end date (YYYY-MM-DD): ").strip()
+
+    try:
+        start_date = datetime.strptime(
+            start_input, "%Y-%m-%d"
+        ).date()
+
+        end_date = datetime.strptime(
+            end_input, "%Y-%m-%d"
+        ).date()
+
+    except ValueError:
+        print("Invalid date. Use YYYY-MM-DD, for example 2022-01-01.")
+        return
+
+    if start_date > end_date:
+        print("Start date cannot be after end date.")
+        return
+
+    matching_posts = []
+
+    for post in posts:
+        post_date = datetime.strptime(
+            post["date"], "%Y-%m-%d"
+        ).date()
+
+        if start_date <= post_date <= end_date:
+            matching_posts.append(post)
+
+    matching_posts.sort(key=lambda post: post["date"], reverse=True)
+
+    if not matching_posts:
+        print("No posts found in this date range.")
+        return
+
+    print("\n========== DATE RANGE RESULTS ==========")
+    print("Total posts found:", len(matching_posts))
+
+    for post in matching_posts:
+        print("\n--------------------")
+        print("Post ID:", post["id"])
+        print("Date:", post["date"])
+        print("Caption:", post["caption"])
+        print("Hashtags:", post["hashtags"])
+        print("Type:", post["media_type"])
+        print("Likes:", post["likes"])
+
+
+
+
 
 while True:
     print("\n========== INSTAFIND ==========")
     print("1. Search posts")
     print("2. View search history")
     print("3. Clear search history")
-    print("4. Exit")
+    print("4. Remove one search from history")
+    print("5. Search posts by date range")
+    print("6. Exit")
 
     choice = input("Enter your choice: ").strip()
 
@@ -210,8 +297,14 @@ while True:
     elif choice == "3":
         clear_history()
     elif choice == "4":
+        remove_history_item()
+    elif choice == "5":
+        search_by_date_range()
+    elif choice == "6":
         print("Thank you for using InstaFind!")
         break
     else:
-        print("Invalid choice. Please choose 1, 2, 3, or 4.")
+        print("Invalid choice. Please choose 1, 2, 3, 4, 5, or 6.")
+
+
 

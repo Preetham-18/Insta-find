@@ -168,11 +168,38 @@ def view_history():
     print("====================================")
 
 
+    
+def clear_history():
+    global search_history
+
+    if not search_history:
+        print("Search history is already empty.")
+        return
+
+    confirmation = input(
+        "Are you sure you want to clear history? (yes/no): "
+    ).strip().lower()
+
+    if confirmation == "yes":
+        search_history = []
+        save_history(search_history)
+        print("Search history cleared successfully.")
+
+    elif confirmation == "no":
+        print("Clear history cancelled.")
+
+    else:
+        print("Invalid choice. Enter yes or no.")
+
+
+
+
 while True:
     print("\n========== INSTAFIND ==========")
     print("1. Search posts")
     print("2. View search history")
-    print("3. Exit")
+    print("3. Clear search history")
+    print("4. Exit")
 
     choice = input("Enter your choice: ").strip()
 
@@ -181,7 +208,10 @@ while True:
     elif choice == "2":
         view_history()
     elif choice == "3":
+        clear_history()
+    elif choice == "4":
         print("Thank you for using InstaFind!")
         break
     else:
-        print("Invalid choice. Please choose 1, 2, or 3.")
+        print("Invalid choice. Please choose 1, 2, 3, or 4.")
+
